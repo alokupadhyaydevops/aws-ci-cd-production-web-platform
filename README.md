@@ -1,2 +1,3 @@
-# aws-ci-cd-production-web-platform
-Scalable AWS web platform with CI/CD using ALB, Auto Scaling, S3, GitHub Actions, and secure IAM integration.
+# AWS CI/CD Production Web Platform
+
+This project demonstrates how to design, build, and operate a production-style web platform on AWS using real-world cloud and DevOps practices such as load balancing, auto scaling, CI/CD automation, secure IAM integration, and deployment debugging.
