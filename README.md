@@ -60,7 +60,32 @@ This is not a theoretical project. I actually built and validated the following:
 - Deployed application artifacts to Amazon S3 automatically  
 - Configured EC2 instances to continuously sync the application from S3  
 - Verified that new instances launched by Auto Scaling behave correctly  
-- Tested deployment by updating code and observing live changes  
+- Tested deployment by updating code and observing live changes
+
+## Challenges and What I Learned
+
+During this project, I intentionally worked through real-world issues instead of avoiding them.
+
+Some key challenges I faced and solved:
+
+- **Inconsistent behavior across instances behind a load balancer**  
+  Sometimes the application appeared correct, sometimes it did not.  
+  I learned this was because only one instance was configured correctly while others were not.
+
+- **Cron jobs failing even though commands worked in the terminal**  
+  I discovered that cron runs with a different environment than interactive shells.  
+  I fixed this by using full command paths, defining variables clearly, and adding logging.
+
+- **Mismatch between pipeline, S3 structure, and EC2 configuration**  
+  The system initially failed because different components expected different file paths.  
+  I learned how important it is to keep infrastructure, storage, and automation aligned.
+
+- **Manual fixes do not work in scalable systems**  
+  Fixing one instance manually caused inconsistency when traffic was load balanced.  
+  I learned that automation must live in Launch Templates, not on individual servers.
+
+These problems taught me how real systems fail and how engineers debug them.
+
 
 This project behaves like a real system:
 - Code changes update production automatically  
