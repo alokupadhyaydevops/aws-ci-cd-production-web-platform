@@ -47,3 +47,23 @@ Core components:
 High-level flow:
 
 Developer → GitHub → GitHub Actions → S3 → EC2 (ASG) → ALB → Users
+
+## What I Built
+
+This is not a theoretical project. I actually built and validated the following:
+
+- Created EC2 instances behind an Application Load Balancer  
+- Configured an Auto Scaling Group to maintain multiple healthy instances  
+- Used Launch Templates to ensure all instances are configured the same way  
+- Built a CI/CD pipeline using GitHub Actions  
+- Configured GitHub Actions to securely connect to AWS using IAM and secrets  
+- Deployed application artifacts to Amazon S3 automatically  
+- Configured EC2 instances to continuously sync the application from S3  
+- Verified that new instances launched by Auto Scaling behave correctly  
+- Tested deployment by updating code and observing live changes  
+
+This project behaves like a real system:
+- Code changes update production automatically  
+- Instances can be terminated and recreated safely  
+- Load balancer distributes traffic across multiple servers  
+
