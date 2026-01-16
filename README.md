@@ -90,5 +90,33 @@ These problems taught me how real systems fail and how engineers debug them.
 This project behaves like a real system:
 - Code changes update production automatically  
 - Instances can be terminated and recreated safely  
-- Load balancer distributes traffic across multiple servers  
+- Load balancer distributes traffic across multiple servers
+
+## Technologies Used
+
+- AWS EC2  
+- Application Load Balancer (ALB)  
+- Auto Scaling Group (ASG)  
+- Launch Templates  
+- Amazon S3  
+- AWS IAM  
+- GitHub Actions (CI/CD)  
+- Linux (Amazon Linux)  
+- Nginx  
+- Bash scripting  
+
+---
+
+## Future Improvements
+
+This project will continue to evolve as I learn more advanced concepts.
+
+Planned improvements include:
+
+- Adding artifact versioning and rollback support  
+- Infrastructure as Code using Terraform  
+- Monitoring and alerting with CloudWatch  
+- Blue/green deployment strategy  
+- Containerized deployment using Docker  
+
 
