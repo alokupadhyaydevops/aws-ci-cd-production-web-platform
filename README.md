@@ -110,13 +110,48 @@ This project behaves like a real system:
 
 ---
 
+
+## Release Strategy and Rollback
+
+This project implements a production-style deployment workflow.
+
+### Versioned Releases
+Each deployment creates a new immutable version in S3: s3://alok-ci-cd-artifact/releases/<timestamp>/index.html
+
+
+This ensures:
+- Every deployment is traceable  
+- Older versions are preserved  
+- Safe history of releases is maintained  
+
+### Controlled Promotion
+After a successful deployment, the pipeline promotes the new version to production by updating: s3://alok-ci-cd-artifact/current/index.html
+
+
+This makes the new version live across all EC2 instances via their existing sync mechanism.
+
+### Rollback Support
+If a bad release goes live, rollback can be performed using the provided script: scripts/rollback.sh <version>
+
+
+This copies a previous release back into `current/`, instantly restoring the site.
+
+### Why this matters
+This demonstrates real-world engineering practices:
+- Safe deployments  
+- Version control of releases  
+- Operational rollback capability  
+- Reliability-focused system design  
+
+
+---
+
 ## Future Improvements
 
 This project will continue to evolve as I learn more advanced concepts.
 
 Planned improvements include:
 
-- Adding artifact versioning and rollback support  
 - Infrastructure as Code using Terraform  
 - Monitoring and alerting with CloudWatch  
 - Blue/green deployment strategy  
