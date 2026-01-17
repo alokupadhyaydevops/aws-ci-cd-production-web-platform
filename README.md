@@ -22,6 +22,9 @@ The focus of this project is not just to "make it work", but to understand:
 
 ## Architecture
 
+![Architecture Diagram](architecture-diagram.drawio.png)
+
+
 This project follows a production-style architecture commonly used in real systems.
 
 Core components:
