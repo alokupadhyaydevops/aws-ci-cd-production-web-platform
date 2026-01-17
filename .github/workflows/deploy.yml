@@ -20,6 +20,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
 
-      - name: Upload app to S3
+      - name: Upload versioned release to S3
         run: |
-          aws s3 cp app/index.html s3://alok-ci-cd-artifact/current/index.html
+          VERSION=$(date +%Y%m%d%H%M%S)
+          aws s3 cp app/index.html s3://alok-ci-cd-artifact/releases/$VERSION/index.html
+          echo "Deployed version: $VERSION"
+          
