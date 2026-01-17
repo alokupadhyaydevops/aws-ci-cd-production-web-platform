@@ -30,4 +30,4 @@ jobs:
 
       - name: Promote release to current
         run: | 
-          aws s3 cp s3://alok-ci-cd-artifact/releases/$VERSION/index.html / s3://alok-ci-cd-artifact/current/index.html
+          aws s3 cp s3://alok-ci-cd-artifact/releases/$VERSION/index.html  s3://alok-ci-cd-artifact/current/index.html
