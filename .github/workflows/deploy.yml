@@ -23,6 +23,11 @@ jobs:
       - name: Upload versioned release to S3
         run: |
           VERSION=$(date +%Y%m%d%H%M%S)
-          aws s3 cp app/index.html s3://alok-ci-cd-artifact/releases/$VERSION/index.html
-          echo "Deployed version: $VERSION"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
           
+          aws s3 cp app/index.html s3://alok-ci-cd-artifact/releases/$VERSION/index.html
+
+
+      - name: Promote release to current
+        run: | 
+          aws s3 cp s3://alok-ci-cd-artifact/releases/$VERSION/index.html / s3://alok-ci-cd-artifact/current/index.html
